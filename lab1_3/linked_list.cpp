@@ -104,6 +104,12 @@ int insert_data_at_middle(int search_val, int val) {
             // Yes it does. This is node we want to add a node after.
 
             /*---------------------insert your code here-----------------------*/
+            p_new -> p_next_node = p_temp -> p_next_node;
+            if (p_tail == p_new) {
+              p_tail = p_new -> p_next_node;
+            }
+            p_temp -> p_next_node = p_new;
+        
 
             return EXIT_OK;
        }
@@ -111,7 +117,7 @@ int insert_data_at_middle(int search_val, int val) {
        // if we've reached here, node was not found yet - move on to next node
        
        /*-------------------------insert your code here--------------------------*/
-
+       p_temp = p_temp -> p_next_node; 
     }
     return EXIT_ERROR;
 }
@@ -138,9 +144,9 @@ int find_and_delete_data (int val) {
            // delete the only item in the list. Handle each of these cases.
 
            //middle case
-           Node *temp = *pp_node -> 
-          *pp_node -> p_next_node = p_temp -> p_next_node;
-          free(*pp_node);
+          
+          (*pp_node) -> p_next_node = p_temp -> p_next_node;  
+          free(p_temp);
             
            /*---------------------insert your code here-----------------------*/
 
@@ -151,7 +157,7 @@ int find_and_delete_data (int val) {
         // if we've reached here, node was not found yet - move on to next node
     
         /*------------------------insert your code here-----------------------*/
-        pp_node = p_temp;
+        pp_node = &p_temp;
         p_temp = p_temp -> p_next_node;  
 
         // *pp_node = p_temp ->p_next_node;
