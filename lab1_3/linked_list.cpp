@@ -105,11 +105,11 @@ int insert_data_at_middle(int search_val, int val) {
 
             /*---------------------insert your code here-----------------------*/
             p_new -> p_next_node = p_temp -> p_next_node;
-            if (p_tail == p_new) {
-              p_tail = p_new -> p_next_node;
+            if (p_tail == p_temp) {
+              p_tail = p_new;
             }
             p_temp -> p_next_node = p_new;
-        
+            
 
             return EXIT_OK;
        }
