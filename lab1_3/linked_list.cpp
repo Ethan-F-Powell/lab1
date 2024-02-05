@@ -75,14 +75,18 @@ int insert_data_at_tail (int val) {
     // then both the head and back pointers need to be updated.
   
     /*-------------------------insert your code here--------------------------*/
-    if (p_tail == NULL) {
+
+   
+    
+    if (p_head == NULL) {
+    //   p_head -> p_next_node = p_new;
+    Serial.println("holay molay"); 
       p_head = p_new;
       p_tail = p_new;
+    } else {
+        p_tail-> p_next_node = p_new;
+        p_tail = p_new;
     }
-
-    p_tail-> p_next_node = p_new;
-    p_tail = p_new;
-    
 
     return EXIT_OK;
 }
@@ -137,17 +141,24 @@ int find_and_delete_data (int val) {
        if (p_temp->data_val == val) {
   
 
-           // Yes it does. This is node we want to delete from list.
-           
-           // Remember: it's possible that we're deleting the first, a middle,
-           // or the last node in the list. It is also possible we're about to
-           // delete the only item in the list. Handle each of these cases.
-
-           //middle case
-          
-          (*pp_node) -> p_next_node = p_temp -> p_next_node;  
-          free(p_temp);
+            // Yes it does. This is node we want to delete from list.
             
+            // Remember: it's possible that we're deleting the first, a middle,
+            // or the last node in the list. It is also possible we're about to
+            // delete the only item in the list. Handle each of these cases.
+
+            //if p_temp is the last node in the chain, set p_tail to pp_node which is the node before p_temp.
+            if (p_temp -> p_next_node == NULL) p_tail = *pp_node;
+
+            //reassign pp_node to next node in chain. brackets are so the indirection operator is applied first to avoid a weird bug. 
+            (*pp_node) = p_temp -> p_next_node; 
+
+            //this seems to fix things? 
+            if (p_head == NULL) p_tail = NULL;
+
+            //finally free the desired node. 
+            free(p_temp);
+
            /*---------------------insert your code here-----------------------*/
 
           
@@ -157,11 +168,14 @@ int find_and_delete_data (int val) {
         // if we've reached here, node was not found yet - move on to next node
     
         /*------------------------insert your code here-----------------------*/
-        pp_node = &p_temp;
-        p_temp = p_temp -> p_next_node;  
+        //to be safe, take current temp's address
+        pp_node = (Node **)p_temp;
 
-        // *pp_node = p_temp ->p_next_node;
-        // p_temp= p_temp -> p_next_node;
+        //assign the next node in chain to pp_node
+        pp_node = &(p_temp -> p_next_node);
+
+        //set p_temp to the next node in the chain
+        p_temp = p_temp -> p_next_node; 
 
     }
     // get here only if we searched whole list and found nothing
