@@ -1,12 +1,11 @@
 /******************************************************************************
-FILENAME:     lab_1_1.ino 
+FILENAME:     lab1_2.ino 
 COURSE:       MREN 178
 LAB:          1
-STUDENT(S):   [STUDENT NAMES AND IDS HERE] 
-DATE:         
+STUDENTS:    [Ahnaaf Khan 20397194, Ethan Powell 20415905] 
+DATE:         Feb 02 2024
 
-ATTRIBUTIONS: [LIST ANY EXTERNAL CONTIBUTORS/CONTRIBUTIONS HERE] 
-
+ATTRIBUTIONS: None.  
 ******************************************************************************/
 // include the library code:
 #include <LiquidCrystal.h>

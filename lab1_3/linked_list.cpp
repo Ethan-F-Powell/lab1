@@ -3,9 +3,9 @@ FILENAME:     linked_list.cpp
 COURSE:       MREN 178
 LAB:          1
 STUDENTS:    [Ahnaaf Khan 20397194, Ethan Powell 20415905] 
-DATE:         Jan 22 2024
+DATE:         Feb 02 2024
 
-ATTRIBUTIONS: [LIST ANY EXTERNAL CONTIBUTORS/CONTRIBUTIONS HERE] 
+ATTRIBUTIONS: Rodrigo - Teaching Assistant.  
 ******************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////    
